@@ -1,0 +1,29 @@
+{
+  "name": "waterview",
+  "version": "0.0.1",
+  "description": "lightweight db",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulsonwalkar/waterview.git"
+  },
+  "keywords": [
+    "database",
+    "nosql",
+    "lightweight",
+    "rest",
+    "api"
+  ],
+  "author": "Rahul Sonwalkar (http://rahul.ru)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahulsonwalkar/waterview/issues"
+  },
+  "homepage": "https://github.com/rahulsonwalkar/waterview#readme",
+  "dependencies": {
+    "jsonfile": "^4.0.0"
+  }
+}
