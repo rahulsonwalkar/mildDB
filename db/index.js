@@ -7,7 +7,7 @@ let db = require('./config');
 console.log(db);
 
 const createCollection = function(name) {
-  path = `./${db.name}/${name}`;
+  let path = `./${db.name}/${name}`;
 
   console.log(`Collection ${name} of Database ${db.name} already exists`);
 
@@ -29,12 +29,12 @@ const createCollection = function(name) {
 
   jsonfile.writeFile(`./config.json`, db, function(err, obj){
     if(err)
-      console.log(err)
+      console.log(err);
   });
 }
 
 const createDatabase = function(name) {
-  path = `./${name}`;
+  let path = `./${name}`;
 
   if(fs.existsSync(path))
     throw `Database ${name} already exists`;
@@ -52,14 +52,43 @@ const createDatabase = function(name) {
   console.log(`SUCCESS! Database ${name} created`);
 
 }
+
+const insert =  function(collection, object){
+
+  if(!fs.existsSync(path))
+    throw `Collection ${name} of Database ${db.name} does not exist`;
+
+  let path = `./${db.name}/${collection}`;
+
+  let data = JSON.parse(fs.readFileSync(`${path}/data.json`));
+
+  data.push(object);
+
+  jsonfile.writeFile(`${path}/data.json`, data, function(err){
+    if(err)
+      console.log(err);
+  });
+
+}
+
+const connect = function(name){
+
+  if(!fs.existsSync(`./${name}`))
+    throw `Database ${name} does not exist`;
+
+  db.name = name;
+  jsonfile.writeFile('./config.json', db, function(err){
+    if(err)
+      console.log(err);
+  });
+}
+
+// const getAll = function(collection){
 //
-// const insert =  function(collection, object){
+// }
 //
-//   fs.writeFile(`${path}/data.json`, "[]", function(err) {
-//       if(err)
-//           throw err;
-//       console.log(`SUCCESS! Collection ${name} of Database ${db} created`);
-//   });
+// const getWherePropisValue = function(collection, prop, value){
+//
 // }
 //exports.createCollection = createCollection
 // createCollection('loggers')
