@@ -1,6 +1,6 @@
 {
   "name": "waterview",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "lightweight db",
   "main": "server.js",
   "scripts": {

@@ -5,8 +5,8 @@ const dir = require('./path_dir').development();
 
 let db = JSON.parse(fs.readFileSync(`${dir}/config.json`));
 
-const createCollection = function(name) {
-  //let path = `./db/${db.name}/${name}`;
+const createCollection = function(name, callback){
+
   let path = `${dir}/${db.name}/${name}`;
 
   if(fs.existsSync(path))
@@ -15,7 +15,7 @@ const createCollection = function(name) {
   //Create directory
   fs.mkdirSync(path);
 
-  fs.writeFile(`${path}/data.json`, "[]", function(err) {
+  fs.writeFile(`${path}/data.json`, "[]", function(err){
       if(err)
           throw err;
       console.log(`SUCCESS! Collection ${name} of Database ${db.name} created`);
@@ -29,9 +29,12 @@ const createCollection = function(name) {
     if(err)
       console.log(err);
   });
+
+  if(callback)
+    callback();
 }
 
-const createDatabase = function(name) {
+const createDatabase = function(name, callback){
   let path = `${dir}/${name}`;
 
   if(fs.existsSync(path))
@@ -49,9 +52,11 @@ const createDatabase = function(name) {
 
   console.log(`SUCCESS! Database ${name} created`);
 
+  if(callback)
+    callback();
 }
 
-const insert =  function(collection, object){
+const insert =  function(collection, object, callback){
   let path = `${dir}/${db.name}/${collection}`;
 
   if(!fs.existsSync(path))
@@ -66,9 +71,12 @@ const insert =  function(collection, object){
       console.log(err);
   });
 
+  if(callback)
+    callback();
+
 }
 
-const insertAll =  function(collection, objects){
+const insertAll =  function(collection, objects, callback){
   let path = `${dir}/${db.name}/${collection}`;
 
   if(!fs.existsSync(path))
@@ -83,9 +91,11 @@ const insertAll =  function(collection, objects){
       console.log(err);
   });
 
+  if(callback)
+    callback();
 }
 
-const connect = function(name){
+const connect = function(name, callback){
 
   if(!fs.existsSync(`${dir}/${name}`))
     throw `Database ${name} does not exist`;
@@ -95,6 +105,9 @@ const connect = function(name){
     if(err)
       console.log(err);
   });
+
+  if(callback)
+    callback();
 }
 
 const getAll = function(collection){
@@ -102,6 +115,9 @@ const getAll = function(collection){
 
   if(!fs.existsSync(path))
     throw `Collection ${collection} of Database ${db.name} does not exist!`;
+
+  if(callback)
+    callback();
 
   return JSON.parse(fs.readFileSync(`${path}/data.json`));
 }
@@ -115,6 +131,9 @@ const getWhere = function(collection, prop, value){
   let data = JSON.parse(fs.readFileSync(`${path}/data.json`)).filter( (object) => {
     return (object[prop] === value) ? object : null;
   });
+
+  if(callback)
+    callback();
 
   return data[0];
 }
