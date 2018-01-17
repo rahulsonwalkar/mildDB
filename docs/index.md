@@ -1,11 +1,13 @@
 
 <title> Waterview : NoSQL Database </title>
-Lightweight NoSQL Database for quick prototypes. Zero setup.
+<p align="center"> Lightweight NoSQL Database for quick prototypes. Requires zero setup. 
 
-[Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) |
+[Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) | 
+</p>
+ 
+#### Installation : ```npm install waterview```
 
-```npm install waterview```
-
+Quick example:
 ##### /db_config.js
 
 ```js
