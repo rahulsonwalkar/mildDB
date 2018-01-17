@@ -1,11 +1,10 @@
 
 <title> Waterview : NoSQL Database </title>
-<p align="center"> Lightweight NoSQL Database for quick prototypes. Requires zero setup. 
+<p align="center"> Lightweight NoSQL Database for quick prototypes. Requires zero setup. </p>
 
 [Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) | 
-</p>
- 
-#### Installation : ```npm install waterview```
+
+Installation : `npm install waterview`
 
 Quick example:
 ##### /db_config.js
@@ -28,3 +27,16 @@ waterview.insert('users', {
   "drivers_license" : true
 })
 ```
+
+More Examples:
+ - Create a REST API with Node, Waterview and Express
+
+Documentation:
+ - [Create a Database](#getting-started-running-server-locally)
+ - [Create a Collection]
+ - [Connect to an existing Database]
+ - [Insert an entity]
+ - [Insert multiple entities]
+ - [Get an entity]
+ - [Get multiple entities]
+ 
