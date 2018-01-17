@@ -1,6 +1,6 @@
 
 <title> Waterview : NoSQL Database </title>
-Software Engineering Intern @ Rechat.com | President @ HackersUTD
+Lightweight NoSQL Database for quick prototypes. Zero setup.
 
 [Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) |
 
