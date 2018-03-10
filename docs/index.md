@@ -1,120 +1,125 @@
-<h1 align="center"> Waterview </h1>
-<center>
 
-<p align="center">
+<title> Waterview : NoSQL Database </title>
+<p align="center"> Lightweight NoSQL Database for quick prototypes. Requires zero setup. </p>
 
-<b>A NoSQL Database like thing for quick prototypes</b>
+[Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) | 
 
-</p>
+Installation : `npm install waterview`
 
-<p align="center">
+Quick example:
+##### /db_config.js
 
-
-<img src="https://i.imgur.com/8pwaQMQ.jpg"/>
-
-</p>
-
-## <h3 align="center"> Get started </h3>
-
-Directly jump to quick examples code here.
-
-Install the package with NPM
-```
-
-npm install waterview
-
-```
-Import the package in your codebase
-```
-
+```js
 const waterview = require('waterview')
 
-```
-## <h3 align="center"> Usage </h3>
-Create a database
-```
-
-waterview.createDatabase('myApplication')    
-
-```
->optionally pass a callback as second parameter
-
-Create a collection (table)
+waterview.createDatabase('facebook', function(){
+  waterview.createCollection('users')
+})
 ```
 
-waterview.createCollection('users')       
+##### /server.js
 
-```
->optionally pass a callback as second parameter
-
-Insert data into a collection
-```
-
+```js
 waterview.insert('users', {
   "name" : "Rahul Sonwalkar",
-  "email" : "example@mail.com",
+  "email" : "rahul@example.com",
   "age" : 20,
   "drivers_license" : true
 })
-
-```
-Get a specific object from collection (table)
 ```
 
-waterview.getWhere('users', 'email', 'example@mail.com')      
+More Examples:
+ - [ VIDEO: REST API in 5 mins with Node, Waterview and Express](https://www.youtube.com/watch?v=igANLYplF0A)
 
-//retrieves the user with example@mail.com email in users collection
-
-```
-Connect to an existing database
-```
-
-waterview.connect('myiOSApp')    
-
-//connects to the waterview instance to Database myiOSApp     
-
-```
-
-Get all entities from a collection (table)
-```
-
-waterview.getAll('users')    
-
-//returns an array of all entities in users collection     
+Documentation:
+ - [Create a Database](#create-a-new-database)
+ - [Connect to a Database](#connect-to-a-database)
+ - [Create a Collection](#create-a-new-collection)
+ - [Insert an entity](#insert-an-entity)
+ - [Insert multiple entities](#insert-multiple-entities)
+ - [Get an entity](#get-an-entity)
+ - [Get multiple entities](#get-all-entities)
+ 
+#### Installation
 
 ```
-
-Insert multiple entities from a collection (table)
+npm install waterview --save
 ```
 
-waterview.insertAll('users', [
-  {
+#### Import
+```js
+const waterview = require('waterview')
+```
+
+#### Create a new Database
+```js
+waterview.createDatabase('myDB')
+```
+Creates a new database called *myDB* and establishes a connection.
+
+#### Connect to a Database
+```js
+waterview.connect('myDifferentDB')
+```
+Establishes a connection with an existing database. Throws an error if the database doesn't exist.
+
+#### Create a new Collection
+```js
+waterview.createCollection('users')
+```
+Creates a collection called *users* under the connected database
+
+#### Insert an entity
+```js
+waterview.insert('users', {
   "name" : "Rahul Sonwalkar",
-  "email" : "example@mail.com",
+  "email" : "rahul@example.com",
   "age" : 20,
   "drivers_license" : true
+})
+```
+
+#### Insert multiple entities
+```js
+waterview.insertAll('users', [
+  {
+    "name" : "Rahul Sonwalkar",
+    "email" : "rahul@example.com",
+    "age" : 20,
+    "drivers_license" : true
   },
   {
-  "name" : "John Doe",
-  "email" : "johndoe@mail.com",
-  "age" : 41,
-  "drivers_license" : false
+    "name" : "John Doe",
+    "email" : "johndoe@mail.com",
+    "age" : 41,
+    "drivers_license" : false
   },
   {
-  "name" : "Gordon Ramsay",
-  "email" : "ramsay@mail.com",
-  "age" : 55,
-  "drivers_license" : true
+    "name" : "Gordon Ramsay",
+    "email" : "ramsay@mail.com",
+    "age" : 55,
+    "drivers_license" : true
   }
 ])    
+```
+Inserts all multiple entities into *users* collection
 
-```     
-Upcoming features:
+#### Get an entity
+```js
+waterview.getWhere('users', 'email', 'rahul@example.com')
 
-1. Custom schemas
-2. Type checks
-3. Sophisticated error handling
+>> {
+    "name" : "Rahul Sonwalkar",
+    "email" : "rahulsonwalkar23@gmail.com",
+    "age" : 20,
+    "drivers_license" : true
+   }
+```
+Returns the first entity where *email* is *rahul@example.com*
 
-##### Creator
-Rahul Sonwalkar - [Blog](http://rahul.ru/blog)
-Website: http://rahul.ru
+#### Get all entities
+```js
+waterview.getAll('users')
+```
+Returns an array containing all entities in *users* collection
+     
