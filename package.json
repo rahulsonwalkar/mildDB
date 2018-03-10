@@ -1,6 +1,6 @@
 {
   "name": "waterview",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Lightweight NoSQL Database for quick prototypes",
   "main": "index.js",
   "scripts": {
