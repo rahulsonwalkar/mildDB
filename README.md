@@ -1,12 +1,3 @@
-<h1 align="center"> Waterview </h1>
-<center>
-
-<p align="center">
-
-<b>A NoSQL Database like thing for quick prototypes</b>
-
-</p>
-
 <p align="center">
 
 
@@ -14,102 +5,30 @@
 
 </p>
 
-## <h3 align="center"> Get started </h3>
+<h1 align="center"> Waterview </h3>
+<p align="center">
+  <i> A NoSQL database like thing for quick prototypes </i>
+</p>
+
+## <h4 align="center"> Get started </h4>
 
 Directly jump to quick examples code here.
 
-Install the package with NPM
-```
+Easy installation using Node Package Manager:
+```js
 
 npm install waterview
 
 ```
-Import the package in your codebase
-```
+## <h4 align="center"> Updated Docs: http://waterview.xyz </h4>
 
-const waterview = require('waterview')
 
-```
-## <h3 align="center"> Usage </h3>
-Create a database
-```
+Latest BETA version: **0.0.13**
 
-waterview.createDatabase('myApplication')    
+Latest stable version: **0.0.9**
 
-```
->optionally pass a callback as second parameter
 
-Create a collection (table)
-```
-
-waterview.createCollection('users')       
-
-```
->optionally pass a callback as second parameter
-
-Insert data into a collection
-```
-
-waterview.insert('users', {
-  "name" : "Rahul Sonwalkar",
-  "email" : "example@mail.com",
-  "age" : 20,
-  "drivers_license" : true
-})
-
-```
-Get a specific object from collection (table)
-```
-
-waterview.getWhere('users', 'email', 'example@mail.com')      
-
-//retrieves the user with example@mail.com email in users collection
-
-```
-Connect to an existing database
-```
-
-waterview.connect('myiOSApp')    
-
-//connects to the waterview instance to Database myiOSApp     
-
-```
-
-Get all entities from a collection (table)
-```
-
-waterview.getAll('users')    
-
-//returns an array of all entities in users collection     
-
-```
-
-Insert multiple entities from a collection (table)
-```
-
-waterview.insertAll('users', [
-  {
-  "name" : "Rahul Sonwalkar",
-  "email" : "example@mail.com",
-  "age" : 20,
-  "drivers_license" : true
-  },
-  {
-  "name" : "John Doe",
-  "email" : "johndoe@mail.com",
-  "age" : 41,
-  "drivers_license" : false
-  },
-  {
-  "name" : "Gordon Ramsay",
-  "email" : "ramsay@mail.com",
-  "age" : 55,
-  "drivers_license" : true
-  }
-])    
-
-```     
-Upcoming features:
+#### :octocat: Upcoming features:
 
 1. Custom schemas
 2. Type checks

@@ -2,7 +2,9 @@
 <title> Waterview : NoSQL Database </title>
 <p align="center"> Lightweight NoSQL Database for quick prototypes. Requires zero setup. </p>
 
-[Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) | 
+[Contribute](https://github.com/rahulsonwalkar/waterview)    |   [Creators](http://rahul.ru)   |   [NPM](https://npmjs.com/package/waterview) |
+
+:octocat: UPDATE: getWhere now accepts multiple parameters, allowing accurate and more practical look-up.
 
 Installation : `npm install waterview`
 
@@ -39,7 +41,7 @@ Documentation:
  - [Insert multiple entities](#insert-multiple-entities)
  - [Get an entity](#get-an-entity)
  - [Get multiple entities](#get-all-entities)
- 
+
 #### Installation
 
 ```
@@ -105,15 +107,16 @@ waterview.insertAll('users', [
 Inserts all multiple entities into *users* collection
 
 #### Get an entity
+:octocat: Update: version 0.0.13 onwards getWhere accepts multiple parameters for accurate and more practical lookup.
 ```js
-waterview.getWhere('users', 'email', 'rahul@example.com')
+waterview.getWhere('users', {name : "Rahul Sonwalkar", age : 20}, 'rahul@example.com')
 
->> {
+>> [{
     "name" : "Rahul Sonwalkar",
-    "email" : "rahulsonwalkar23@gmail.com",
+    "email" : "rahul@example.com",
     "age" : 20,
     "drivers_license" : true
-   }
+   }]
 ```
 Returns the first entity where *email* is *rahul@example.com*
 
@@ -122,4 +125,3 @@ Returns the first entity where *email* is *rahul@example.com*
 waterview.getAll('users')
 ```
 Returns an array containing all entities in *users* collection
-     
