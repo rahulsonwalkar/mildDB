@@ -11,9 +11,9 @@
         "plugins/markdown"
     ],
     "opts": {
-        "template": "node_modules/minami",
+        "template": "node_modules/docdash",
         "encoding": "utf8",
-        "destination": "docs/minami",
+        "destination": "docs/",
         "recurse": true,
         "verbose": true
     },

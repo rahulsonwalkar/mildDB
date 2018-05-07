@@ -79,8 +79,8 @@ h4 {
 }
 
 h4.name {
-  color: #fff;
-  background: #6d426d;
+  color: #000;
+  background: #fff;
   box-shadow: 0 .25em .5em #d3d3d3;
   border-top: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
@@ -89,7 +89,7 @@ h4.name {
 }
 
 h4.name a {
-  color: #fc83ff;
+  color: #C0C0C0;
 }
 
 h4.name a:hover {
@@ -267,7 +267,7 @@ footer {
 }
 
 .type-signature {
-  color: #CA79CA
+  color: #778899
 }
 
 .type-signature:last-child {
@@ -279,7 +279,7 @@ footer {
 }
 
 .signature {
-    color: #fc83ff;
+    color: #A9A9A9;
 }
 
 .details {
